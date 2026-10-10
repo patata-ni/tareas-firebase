@@ -31,6 +31,10 @@ log.txt
 
 # Node
 /node_modules
+
+# Configuración de Firebase de cada persona: se crea desde las plantillas *.example.ts
+/src/environments/environment.ts
+/src/environments/environment.prod.ts
 npm-debug.log
 yarn-error.log
 

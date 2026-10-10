@@ -1,7 +1,6 @@
-// Sustituye los valores por la configuración web de tu proyecto de Firebase
-// (Consola de Firebase → Configuración del proyecto → Tus apps → Web).
+// Plantilla de producción: se copia a environment.prod.ts, que git ignora.
 export const environment = {
-  production: false,
+  production: true,
   firebase: {
     apiKey: 'TU_API_KEY',
     authDomain: 'TU_PROYECTO.firebaseapp.com',

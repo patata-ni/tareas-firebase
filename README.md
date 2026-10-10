@@ -12,18 +12,25 @@ Lista de tareas con inicio de sesión. Cada usuario ve y gestiona solo las suyas
 ## Configurar Firebase
 
 Este repositorio **no incluye** la configuración de ningún proyecto de Firebase.
+Tu configuración vive en `src/environments/environment.ts` y
+`environment.prod.ts`, que git ignora: no se sube a GitHub.
 
 1. Crea un proyecto en la [consola de Firebase](https://console.firebase.google.com/).
 2. Activa **Authentication → Correo/contraseña** y crea una base de datos **Firestore**.
 3. En Configuración del proyecto → Tus apps → Web, copia la configuración.
-4. Pégala en [environment.ts](./src/environments/environment.ts) y
-   [environment.prod.ts](./src/environments/environment.prod.ts).
-5. Pon el id de tu proyecto en [.firebaserc](./.firebaserc).
-6. Publica las reglas: `npx firebase-tools deploy --only firestore:rules`.
+4. Ejecuta `npm install` y luego `npm start` una vez: se crean los dos archivos
+   desde las plantillas [environment.example.ts](./src/environments/environment.example.ts)
+   y [environment.prod.example.ts](./src/environments/environment.prod.example.ts).
+5. Pega tu configuración en `environment.ts` y `environment.prod.ts`.
+6. Pon el id de tu proyecto en [.firebaserc](./.firebaserc).
+7. Publica las reglas: `npx firebase-tools deploy --only firestore:rules`.
+
+El script [crear-entorno.cjs](./scripts/crear-entorno.cjs) nunca sobrescribe un
+archivo que ya exista. Con los valores de ejemplo la app compila, pero no puede
+iniciar sesión.
 
 La configuración web de Firebase no es un secreto: la protección real son
-las reglas de Firestore. Aun así, no la subas a un repositorio público sin
-revisar esas reglas.
+las reglas de Firestore.
 
 ## Ejecutar
 
