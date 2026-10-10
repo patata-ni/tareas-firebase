@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Mis tareas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarSesion()">Salir</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p class="usuario">Sesión: {{ email }}</p>
+
+  <form (ngSubmit)="agregar()">
+    <ion-item>
+      <ion-input
+        name="nuevaTarea"
+        label="Nueva tarea"
+        labelPlacement="floating"
+        maxlength="200"
+        [(ngModel)]="nuevaTarea"
+      ></ion-input>
+      <ion-button slot="end" type="submit" [disabled]="!nuevaTarea.trim()">Agregar</ion-button>
+    </ion-item>
+  </form>
+
+  <ion-list>
+    <ion-item *ngFor="let tarea of tareas">
+      <ion-label class="ion-text-wrap">{{ tarea.titulo }}</ion-label>
+      <ion-button slot="end" fill="clear" color="danger" (click)="eliminar(tarea)">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <p *ngIf="cargando" class="vacio">Cargando tareas...</p>
+  <p *ngIf="!cargando && tareas.length === 0" class="vacio">No tienes tareas todavía.</p>
+</ion-content>

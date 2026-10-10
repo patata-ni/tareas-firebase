@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ modoRegistro ? 'Crear cuenta' : 'Iniciar sesión' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="enviar()">
+    <ion-item>
+      <ion-input
+        name="email"
+        type="email"
+        label="Correo"
+        labelPlacement="floating"
+        autocomplete="email"
+        required
+        [(ngModel)]="email"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        name="password"
+        type="password"
+        label="Contraseña"
+        labelPlacement="floating"
+        autocomplete="current-password"
+        minlength="6"
+        required
+        [(ngModel)]="password"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" class="ion-margin-top" [disabled]="!email || !password">
+      {{ modoRegistro ? 'Registrarme' : 'Entrar' }}
+    </ion-button>
+  </form>
+
+  <ion-button expand="block" fill="clear" (click)="modoRegistro = !modoRegistro">
+    {{ modoRegistro ? '¿Ya tienes cuenta? Inicia sesión' : '¿No tienes cuenta? Regístrate' }}
+  </ion-button>
+</ion-content>

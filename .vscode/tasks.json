@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start Ionic dev server",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"start",
+				"--",
+				"--host",
+				"0.0.0.0"
+			],
+			"isBackground": true,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Start Ionic dev server via npm.cmd",
+			"type": "shell",
+			"command": "npm.cmd",
+			"args": [
+				"start",
+				"--",
+				"--host",
+				"0.0.0.0"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
